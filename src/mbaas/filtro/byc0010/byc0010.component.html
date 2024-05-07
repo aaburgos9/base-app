@@ -1,0 +1,50 @@
+<!--
+// Copyright (C) 2024 - Smart Jungle
+-->
+
+<!-- <body> -->
+    <main class="smart-container" mbaasTaggingPageView [ngStyle]="{'background': configView?.customColors?.background}">
+
+        <mbaas-header-enterprise head [title]="configView?.header?.title" [headerColor1]="configView?.customColors?.header1" [headerColor2]="configView?.customColors?.header2"
+            [showArrow]="configView?.header?.atrasActivado" (closeFunction)="appFinish('ok', 200)"></mbaas-header-enterprise>
+        <!-- <title> -->
+        <mbaas-title [title]="configView?.mainTitle"></mbaas-title>
+        <!-- </title> -->
+
+        <!-- <content-box> -->
+        <!-- <mbaas-content-box [large]="false" [padding]="0" [paddingBottom]="16"> -->
+            <!-- <img-banner> -->
+            <!-- <mbaas-headers [image]="configView?.banner | Files | async"></mbaas-headers> -->
+            <!-- </img-banner> -->
+
+            <!-- <user-data> -->
+            <!-- <mbaas-app-results [resultsElements]="results" [type]="'top'"></mbaas-app-results> -->
+            <!-- </user-data> -->
+            <!-- <hr class="smart-divider"> -->
+
+            <!-- <radiobutton> -->
+            <!-- <mbaas-form-container #formInputProfil010 [config]="inputProfil010"></mbaas-form-container> -->
+            <!-- </radiobutton> -->
+        <!-- </mbaas-content-box> -->
+
+        <!-- <checkbox> -->
+        <!-- <div class="smart-checkboxContainer">
+            <mbaas-form-container #formInputProfil011 [config]="inputProfil011"></mbaas-form-container>
+        </div> -->
+        <!-- </checkbox> -->
+        <!-- </content-box> -->
+
+        <!-- <button-continue> -->
+        <!-- <div class="smart-buttonContainer">
+            <mbaas-button-continue [classButton] mbaasTaggingClick="continuar"
+            [disabledColor]="configView?.customColors?.buttonDisabled" [enabledColor]="configView?.customColors?.buttonEnabled" [pressColor]="configView?.customColors?.pressColor"
+            [disableIf]="disableButton" (call)="onCall(getDataToContinue())">
+                <ng-container contenedor>
+                    Continuar
+                </ng-container>
+            </mbaas-button-continue>
+        </div> -->
+        <!-- </button-continue> -->
+
+        <!-- </body> -->
+    </main>
