@@ -165,83 +165,182 @@ describe('BootResolverServiceService', () => {
 
 });
 
+// import { TestBed } from '@angular/core/testing';
+// import { PostMessagesService } from './post-messages.service';
+// import { SendInformationService } from '../SendInformation/send-information.service';
+// import { HttpClientTestingModule } from '@angular/common/http/testing';
+// import { RouterTestingModule } from '@angular/router/testing';
+// import { JwtModule } from '@auth0/angular-jwt';
+// import { jwtTokenGetter } from 'src/mbaas/mbaas.module';
+// import { CatalogoService } from '../catalogo/catalogo.service';
+// import { of, throwError } from 'rxjs';
+// import { HttpErrorResponse } from '@angular/common/http';
 
-// // import {
-// //   ComponentFactoryResolver,
-// //   ComponentRef,
-// //   ViewContainerRef,
-// // } from '@angular/core';
+// describe('PostMessagesService', () => {
+//   beforeEach(() =>
+//     TestBed.configureTestingModule({
+//       imports: [
+//         HttpClientTestingModule,
+//         RouterTestingModule,
+//         JwtModule.forRoot({
+//           config: {
+//             tokenGetter: jwtTokenGetter,
+//             allowedDomains: ['.*'],
+//           },
+//         }),
+//       ],
+//       providers: [PostMessagesService, SendInformationService],
+//     })
+//   );
 
-// // import { DynamicFieldDirective } from './dynamic-field.directive';
+//   it('should be created', () => {
+//     const service: PostMessagesService = TestBed.inject(PostMessagesService);
+//     expect(service).toBeTruthy();
+//   });
 
-// // import { FormBuilder } from '@angular/forms';
-// // import { COMPONENTS, FormTypes } from '../../config/form-config';
-// // import { FieldConfig } from '../../models/field-config.interface';
-// // import { Field } from '../../models/field.interface';
+//   it('test addEventListener', () => {
+//     const service: PostMessagesService = TestBed.inject(PostMessagesService);
 
-// // describe('DynamicFieldDirective', () => {
-// //   let directive: DynamicFieldDirective;
+//     service.addListener();
+//     expect(service).toBeTruthy();
+//   });
 
-// //   const spyComponentFactoryResolver: jasmine.SpyObj<ComponentFactoryResolver> =
-// //     jasmine.createSpyObj('ComponentFactoryResolver', [
-// //       'resolveComponentFactory',
-// //     ]);
+//   it('test getAndSendPostMessages', () => {
+//     const service: PostMessagesService = TestBed.inject(PostMessagesService);
+//     spyOn(TestBed.inject(CatalogoService), 'data').and.returnValue(
+//       of([
+//         {
+//           fn: 'setTitle',
+//           message: {
+//             title: '',
+//           },
+//         },
+//       ])
+//     );
+//     service.getAndSendPostMessages('catPOST_SETTITLE', {});
+//     expect(service).toBeTruthy();
+//   });
 
-// //   const spyViewContainerRef: jasmine.SpyObj<ViewContainerRef> =
-// //     jasmine.createSpyObj('ViewContainerRef', ['createComponent']);
+//   it('test getAndSendPostMessages branch', () => {
+//     const service: PostMessagesService = TestBed.inject(PostMessagesService);
+//     spyOn(TestBed.inject(SendInformationService), 'lastValue')
+//       .withArgs('modulo')
+//       .and.returnValue('MNUING')
+//       .withArgs('pais')
+//       .and.returnValue('CO')
+//       .withArgs('lenguaje')
+//       .and.returnValue('ES')
+//       .withArgs('kind')
+//       .and.returnValue('cuenta')
+//       .withArgs('canal')
+//       .and.returnValue('37')
+//       .withArgs('postMessagesToken')
+//       .and.returnValue('123123123');
+//     spyOn(TestBed.inject(CatalogoService), 'data').and.returnValue(
+//       of([
+//         {
+//           fn: 'setTitle',
+//           message: {
+//             title: '',
+//           },
+//         },
+//       ])
+//     );
+//     service.getAndSendPostMessages('catPOST_SETTITLE', {});
+//     expect(service).toBeTruthy();
+//   });
 
-// //   const fieldConfigMock: FieldConfig = {
-// //     type: FormTypes.textField,
-// //     name: 'fechaNacimiento',
-// //     label: '¿Cuál es su fecha de nacimiento?',
-// //   };
+//   it('test getAndSendPostMessages branch error', () => {
+//     const service: PostMessagesService = TestBed.inject(PostMessagesService);
+//     spyOn(TestBed.inject(SendInformationService), 'lastValue')
+//       .withArgs('modulo')
+//       .and.returnValue('MNUING')
+//       .withArgs('pais')
+//       .and.returnValue('CO')
+//       .withArgs('lenguaje')
+//       .and.returnValue('ES')
+//       .withArgs('kind')
+//       .and.returnValue('cuenta')
+//       .withArgs('canal')
+//       .and.returnValue('37')
+//       .withArgs('postMessagesToken')
+//       .and.returnValue('123123123');
+//     service.getAndSendPostMessages('catPOST_SET', {});
+//     expect(service).toBeTruthy();
+//   });
 
-// //   const componentMock = {
-// //     instance: { config: {}, group: {} },
-// //   } as unknown as ComponentRef<Field>;
+//   it('test callPostMessage', () => {
+//     const service: PostMessagesService = TestBed.inject(PostMessagesService);
+//     service.callPostMessage({
+//       fn: 'setTitle',
+//       message: { toeken: '234567890' },
+//     });
+//     expect(service).toBeTruthy();
+//   });
 
-// //   beforeEach(() => {
-// //     const formBuilder: FormBuilder = new FormBuilder();
-// //     directive = new DynamicFieldDirective(
-// //       spyComponentFactoryResolver,
-// //       spyViewContainerRef
-// //     );
+//   it('test service creation', () => {
+//     const catalogo = TestBed.inject(CatalogoService);
+//     const obser = TestBed.inject(SendInformationService);
+//     const service = new PostMessagesService(obser, catalogo);
+//     spyOn(service, 'addListener').and.callFake(() => {});
+//     expect(service).toBeTruthy();
+//   });
 
-// //     spyViewContainerRef.createComponent.and.returnValue(componentMock);
+//   it('test service response catalo error', () => {
+//     const errorResponse = new HttpErrorResponse({
+//       error: { code: 404, message: 'es un error' },
+//       status: 400,
+//       statusText: 'Bad Request',
+//     });
+//     const catalogo = TestBed.inject(CatalogoService);
+//     const obser = TestBed.inject(SendInformationService);
+//     const service = new PostMessagesService(obser, catalogo);
+//     spyOn(service['catalogo'], 'data').and.returnValue(
+//       throwError(() => errorResponse)
+//     );
+//     expect(service).toBeTruthy();
+//   });
 
-// //     directive['component'] = componentMock;
-// //     directive.config = fieldConfigMock;
-// //     directive.group = formBuilder.group({ name: 'Name' });
-// //   });
+//   it('test service.postMessageEmitter', () => {
+//     const catalogo = TestBed.inject(CatalogoService);
+//     const obser = TestBed.inject(SendInformationService);
+//     const service = new PostMessagesService(obser, catalogo);
+//     service.postMessageEmitter({
+//       fn: 'setTitle',
+//       message: { toeken: '234567890' },
+//     });
+//     expect(service).toBeTruthy();
+//   });
 
-// //   it('should create', () => {
-// //     expect(directive).toBeTruthy();
-// //   });
+//   it('test addListener send event message', () => {
+//     const catalogo = TestBed.inject(CatalogoService);
+//     const obser = TestBed.inject(SendInformationService);
 
-// //   it('should method ngOnChanges', () => {
-// //     directive.ngOnChanges();
-// //     expect(directive).toBeTruthy();
-// //   });
+//     spyOn(obser, 'sendData').and.callFake(() => {});
+//     spyOn(window, 'addEventListener').and.callFake(
+//       (_event: string, callback: any) => {
+//         callback({
+//           data: {
+//             fnCallback: () => {},
+//           },
+//         });
+//       }
+//     );
 
-// //   it('should method ngOnInit', () => {
-// //     directive.ngOnInit();
-// //     expect(directive).toBeTruthy();
-// //   });
+//     const service = new PostMessagesService(obser, catalogo);
+//     service.addListener();
+//     expect(service).toBeTruthy();
+//   });
 
-// //   it('should method ngOnInit', () => {
-// //     const supportedTypes = Object.keys(COMPONENTS).join(', ');
-// //     directive.config = {
-// //       ...fieldConfigMock,
-// //       type: FormTypes.date,
-// //     };
+//   it('test method direction', () => {
+//     const catalogo = TestBed.inject(CatalogoService);
+//     const obser = TestBed.inject(SendInformationService);
+//     const service = new PostMessagesService(obser, catalogo);
+//     spyOn(service, 'postMessageEmitter').and.callFake(() => {});
 
-// //     expect(() => directive.ngOnInit()).toThrow(
-// //       new Error(`Trying to use an unsupported type (${'date'}).
-// //         Supported types: ${supportedTypes}`)
-// //     );
-// //   });
+//     service.direction('http://example.com');
 
-// //   afterEach(() => {
-//     directive = null;
+//     expect(service).toBeTruthy();
 //   });
 // });
+
