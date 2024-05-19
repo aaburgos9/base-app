@@ -1,0 +1,15 @@
+.dav-buttonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+  &--horizontal {
+    @extend .dav-buttonContainer;
+    flex-direction: row;
+  }
+  &--vertical {
+    @extend .dav-buttonContainer;
+    flex-direction: column;
+  }
+}
